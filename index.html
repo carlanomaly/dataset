@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CarLanomaly Dataset</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header, footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    header h1, footer p {
+      margin: 0;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    .gallery {
+      display: flex;
+      gap: 1rem;
+    }
+    .gallery figure {
+      flex: 1;
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery figcaption {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+    .video-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .video-container figure {
+      flex: 1;
+      margin: 0;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .video-container figcaption {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+    .cool-table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .cool-table thead {
+      background: linear-gradient(90deg, #4b79a1, #283e51);
+      color: #fff;
+    }
+    .cool-table th,
+    .cool-table td {
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    .cool-table tbody tr:nth-child(even) {
+      background: #f7f9fb;
+    }
+    .cool-table tbody tr:hover {
+      background: #e1f3ff;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CarlAnomaly Dataset</h1>
+    <p>A CARLA-based benchmark dataset for video anomaly detection for autonomous vehicles</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About CarLanomaly</h2>
+      
+      <ul>
+        <li>4 cameras (front, left, right, rear) with full HD images</li>
+        <li>Semantic Instance Segmentation Masks for each camera</li>
+        <li>Semantic LIDAR point clouds for each frame</li>
+        <li>Additional Sensors (IMU, GNSS, ...)</li>
+      </ul>
+
+
+      <div class="video-container" style="width: 720px; margin: auto;">
+        <figure>
+        <video controls>
+          <source src="video/carlagen-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
+        </figure>
+      </div>
+
+
+      <h3>Training Set</h3>
+      <p>
+        The training set consists of 3 extended drives through different maps of CARLA. 
+      </p>
+      
+      <h3>Validation Set</h3>
+      <p>
+        The validation set consists of a drive through some city. 
+      </p>
+
+      <h3>Test Set</h3>
+      <p>
+        The test set features a range of 20 second long scenarios, some of which contain anomalies. 
+      </p>
+
+
+      <h2>Different Environmental Conditions</h2>
+     
+
+      <p>
+       
+        CarlAnomaly features a wide range of environmental conditions, including different times of day, 
+        different environments (maps in CARLA), etc. 
+      </p>
+     
+
+      <div class="gallery">
+        <figure>
+          <img src="img/1337-rainy.jpg" alt="Car Anomaly 1">
+          <figcaption>Rainy</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/1337-night.jpg" alt="Car Anomaly 1">
+          <figcaption>Night</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/1337-sunset.jpg" alt="Car Anomaly 1">
+          <figcaption>Sunset</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    </section>
+
+
+
+    <section>
+      <h2>Instance Segmentation Masks</h2>
+
+      The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID.
+      Since these annotations where generated in a simulation, the annotations are perfect. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/000003.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+        <figure>
+          <img src="img/000003.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+        </div>
+
+        <div class="gallery">
+        <figure>
+          <img src="img/000080.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/000080.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Semantic LIDAR Point Clouds</h2>
+      Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings. 
+
+      We follow the KITTI-format. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/pcl-0.jpg" alt="Car Anomaly 1">
+          <figcaption>LIDAR Example 1</figcaption>
+        </figure>
+        <figure>
+          <img src="img/pcl-1.jpg" alt="Car Anomaly 2">
+          <figcaption>LIDAR Example 2</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    </section>
+
+    <section>
+      <h2>Additional Sensors</h2>
+      The dataset additionally contains sensor readings for the following sensors in CSV format: 
+
+      <ul>
+        <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
+        <li><b>GNSS</b>: Measuring position of the vehicle</li>
+        <li><b>Weather</b>: Exact weather conditions</li>
+      </ul>
+
+
+      <h3>Example: IMU</h3>
+      The per-frame IMU readings look as follows:
+
+      <div class="table-wrapper">
+        <table  class="cool-table">
+          <tr>
+            <th>index</th>
+            <th>acceleration_x</th>
+            <th>acceleration_y</th>
+            <th>acceleration_z</th>
+            <th>compass</th>
+            <th>longitude_x</th>
+            <th>longitude_y</th>
+            <th>longitude_z</th>
+          </tr>
+          <tr><td>0</td><td>-1.31</td><td>0.00</td><td>9.73</td><td>3.16</td><td>-0.00</td><td>-0.02</td><td>-0.01</td></tr>
+          <tr><td>1</td><td>5.58</td><td>-0.02</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>2</td><td>5.90</td><td>-0.00</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>3</td><td>6.19</td><td>-0.01</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>4</td><td>5.90</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>5</td><td>4.71</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>0.00</td><td>-0.00</td></tr>
+          <tr><td>6</td><td>-0.01</td><td>-0.10</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>0.01</td><td>-0.01</td></tr>
+        </table>
+        </div>
+
+     
+    </section>
+
+
+    <section>
+      <h2>Anomalies</h2>
+
+      CarlAnomaly features a wide range of anomalies. 
+
+      Overall, there are x different types of anomalies: 
+
+      <ul>
+        <li>Randomly appearing and disappearing unknown objects</li>
+        <li>Traffic Lights Malfunctioning in several ways (off, blinking single color, switching to fast)</li>
+        <li>Instantaneous weather changes</li>
+        <li>Spawning or vanishing objects</li>
+      </ul>
+
+
+      <h3>Spawning Anomalous Objects</h3>
+      <div class="gallery video-container">
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/spawn-props-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Front Camera</figcaption>
+        </figure>
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/segmentation-spawn-props.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </div>
+
+
+      <h3>Misbehaving Traffic Lights</h3>
+
+
+      <div class="gallery video-container">
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/traffic-light-off-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Front Camera</figcaption>
+        </figure>
+        <figure>
+          <video controls>
+            <source width="360px" src="video/ano/segmentation-traffic-light-off-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Instance-wise Segmentation Mask</figcaption>
+        </figure>
+
+      </div>
+
+
+      <h3>Changing Weather</h3>
+      <div class="gallery video-container">
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/weather-change-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Front Camera</figcaption>
+        </figure>
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/segmentation-weather-change-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </div>
+
+      <h3>Flickering Street Lights</h3>
+      <div class="gallery video-container">
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/flicker-light-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Front Camera</figcaption>
+        </figure>
+        <figure>
+        <video controls>
+          <source width="360px" src="video/ano/segmentation-flicker-light-front.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </div>
+
+      
+    </section>
+
+
+    
+    <section>
+      <h2>Usage & Download</h2>
+      <p>Since the dataset is generated by a simulation, you are free to use it however you like.</p>
+
+      <p>We also provide the code that was used to generate the scenarios. This allows you to, for example, create a new version of the dataset with higher-resolution camera images.</p>
+
+      <p>
+        Code for training and evaluating your model on the benchmark is provided in this <a href="#">GitHub Repository</a>.
+      </p>
+
+      <h3>Download</h3>
+      The full dataset is 1.3T in size. 
+      You can download it from  <a href="#">Academic Torrents</a>.
+      
+    </section>
+
+    <section>
+      <h2>License: MIT</h2>
+      The CarlAnomaly dataset is licensed under MIT. 
+
+
+    </section>
+
+    <section>
+      <h2>Citation</h2>
+
+      <code>
+        {
+
+
+        }
+      </code>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CarlAnomaly Dataset</p>
+  </footer>
+
+</body>
+</html>
