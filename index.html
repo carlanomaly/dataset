@@ -25,6 +25,16 @@
       max-width: 900px;
       margin: auto;
     }
+    main p {
+      /* ensures it’s a block (already default for <p>) */
+      display: block;
+      /* align both left & right edges */
+      text-align: justify;
+      /* distribute spaces between words */
+      text-justify: inter-word;
+      margin-bottom: 1.5rem; /* optional spacing */
+    }
+
     section {
       margin-bottom: 2rem;
     }
@@ -103,9 +113,8 @@
 
   <main>
     <section>
-      <h2>About CarlAnomaly</h2>
       <p>
-        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly Dataset (CAD), a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
+        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
       </p>
       
       Allows to benchmark anomaly detection capabilities on the pixel/point level, the frame level, and the scenario level. 
@@ -127,17 +136,123 @@
         <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
         </figure>
       </div>
+    </section>
 
+    <section>
       <h2>Sensor Setup</h2>
 
-      <div class="gallery">
+      <div class="gallery"  style="width: 500px; margin: auto;">
        <figure>
           <img src="img/carla-setup.png" alt="Car Anomaly Sensor Setup">
           <figcaption>Sensor Setup</figcaption>
         </figure>
       </div>
 
+
+
+      <h3>Instance Segmentation Masks</h3>
+
+      The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID.
+      Since these annotations where generated in a simulation, the annotations are perfect. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/000003.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+        <figure>
+          <img src="img/000003.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+         <figure>
+          <img src="img/000003.png" alt="Car Anomaly 2">
+          <figcaption>Depth Map<figcaption>
+        </figure>
+        </div>
+
+        <div class="gallery">
+        <figure>
+          <img src="img/000080.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/000080.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+
+         <figure>
+          <img src="img/000080.png" alt="Car Anomaly 2">
+          <figcaption>Depth Map</figcaption>
+        </figure>
+
+      </div>
+
+    <h3>Semantic LIDAR Point Clouds</h3>
+      Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings. 
+
+      We follow the KITTI-format. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/pcl-0.jpg" alt="Car Anomaly 1">
+          <figcaption>LIDAR Example 1</figcaption>
+        </figure>
+        <figure>
+          <img src="img/pcl-1.jpg" alt="Car Anomaly 2">
+          <figcaption>LIDAR Example 2</figcaption>
+        </figure>
+
+      </div>
+
+      <h3>Additional Sensors</h3>
+      The dataset additionally contains sensor readings for the following sensors in CSV format: 
+
+      <ul>
+        <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
+        <li><b>GNSS</b>: Measuring position of the vehicle</li>
+        <li><b>Weather</b>: Exact weather conditions</li>
+      </ul>
+
+
+      <h4>Example: IMU</h3>
+      The per-frame IMU readings look as follows:
+
+      <div class="table-wrapper">
+        <table  class="cool-table">
+          <tr>
+            <th>index</th>
+            <th>acceleration_x</th>
+            <th>acceleration_y</th>
+            <th>acceleration_z</th>
+            <th>compass</th>
+            <th>longitude_x</th>
+            <th>longitude_y</th>
+            <th>longitude_z</th>
+          </tr>
+          <tr><td>0</td><td>-1.31</td><td>0.00</td><td>9.73</td><td>3.16</td><td>-0.00</td><td>-0.02</td><td>-0.01</td></tr>
+          <tr><td>1</td><td>5.58</td><td>-0.02</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>2</td><td>5.90</td><td>-0.00</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>3</td><td>6.19</td><td>-0.01</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>4</td><td>5.90</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>5</td><td>4.71</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>0.00</td><td>-0.00</td></tr>
+          <tr><td>6</td><td>-0.01</td><td>-0.10</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>0.01</td><td>-0.01</td></tr>
+        </table>
+        </div>
+
+
+        <h4>Example: GNSS</h4>
+
+
+         <div class="gallery"  style="width: 500px; margin: auto;">
+         <figure>
+          <img src="img/gnss.webp" alt="GNSS">
+          <figcaption>GNSS Coordinates in Matplotlib</figcaption>
+        </figure>
+        </div>
+
       <h2>Dataset Composition</h2>
+
       <h3>Training Set</h3>
       <p>
         The training set consists of 2 extended drives through different maps of CARLA (town01, town05). 
@@ -154,7 +269,7 @@
       </p>
 
 
-      <h2>Different Environmental Conditions</h2>
+      <h3>Different Environmental Conditions</h3>
      
 
       <p>
@@ -180,100 +295,16 @@
           <figcaption>Sunset</figcaption>
         </figure>
       </div>
+
+
     </section>
 
-    </section>
 
 
 
-    <section>
-      <h2>Instance Segmentation Masks</h2>
 
-      The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID.
-      Since these annotations where generated in a simulation, the annotations are perfect. 
+      
 
-      <div class="gallery">
-        <figure>
-          <img src="img/000003.jpg" alt="Car Anomaly 1">
-          <figcaption>Camera Image</figcaption>
-        </figure>
-        <figure>
-          <img src="img/000003.png" alt="Car Anomaly 2">
-          <figcaption>Instance Segmentation Mask</figcaption>
-        </figure>
-        </div>
-
-        <div class="gallery">
-        <figure>
-          <img src="img/000080.jpg" alt="Car Anomaly 1">
-          <figcaption>Camera Image</figcaption>
-        </figure>
-
-        <figure>
-          <img src="img/000080.png" alt="Car Anomaly 2">
-          <figcaption>Instance Segmentation Mask</figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-    <section>
-      <h2>Semantic LIDAR Point Clouds</h2>
-      Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings. 
-
-      We follow the KITTI-format. 
-
-      <div class="gallery">
-        <figure>
-          <img src="img/pcl-0.jpg" alt="Car Anomaly 1">
-          <figcaption>LIDAR Example 1</figcaption>
-        </figure>
-        <figure>
-          <img src="img/pcl-1.jpg" alt="Car Anomaly 2">
-          <figcaption>LIDAR Example 2</figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-    <section>
-      <h2>Additional Sensors</h2>
-      The dataset additionally contains sensor readings for the following sensors in CSV format: 
-
-      <ul>
-        <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
-        <li><b>GNSS</b>: Measuring position of the vehicle</li>
-        <li><b>Weather</b>: Exact weather conditions</li>
-      </ul>
-
-
-      <h3>Example: IMU</h3>
-      The per-frame IMU readings look as follows:
-
-      <div class="table-wrapper">
-        <table  class="cool-table">
-          <tr>
-            <th>index</th>
-            <th>acceleration_x</th>
-            <th>acceleration_y</th>
-            <th>acceleration_z</th>
-            <th>compass</th>
-            <th>longitude_x</th>
-            <th>longitude_y</th>
-            <th>longitude_z</th>
-          </tr>
-          <tr><td>0</td><td>-1.31</td><td>0.00</td><td>9.73</td><td>3.16</td><td>-0.00</td><td>-0.02</td><td>-0.01</td></tr>
-          <tr><td>1</td><td>5.58</td><td>-0.02</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
-          <tr><td>2</td><td>5.90</td><td>-0.00</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
-          <tr><td>3</td><td>6.19</td><td>-0.01</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
-          <tr><td>4</td><td>5.90</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
-          <tr><td>5</td><td>4.71</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>0.00</td><td>-0.00</td></tr>
-          <tr><td>6</td><td>-0.01</td><td>-0.10</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>0.01</td><td>-0.01</td></tr>
-        </table>
-        </div>
-
-     
-    </section>
 
 
     <section>
@@ -371,7 +402,7 @@
 
     
     <section>
-      <h2>Usage & Download</h2>
+      <h2>Download</h2>
       <p>Since the dataset is generated by a simulation, you are free to use it however you like.</p>
 
       <p>We also provide the code that was used to generate the scenarios. This allows you to, for example, create a new version of the dataset with higher-resolution camera images or additional sensors, such as depth camera, dynamic vision sensor (DVS), or optical flow.</p>
@@ -380,15 +411,47 @@
         Code for training and evaluating your model on the benchmark is provided in this <a href="#">GitHub Repository</a>.
       </p>
 
-      <h3>Download</h3>
-      The full dataset is 1.3T in size. 
-      You can download it from  <a href="#">Academic Torrents</a>.
+      The full dataset is 1.3T in size. Most of this is the LiDAR pointclouds. 
+      You can download it from <a href="#">Academic Torrents</a> or via <code>https</code> as described below.
       
+      <h3>Parts</h3>
+      The dataset can be downloaded in parts
+
+      <ul>
+        <li><a href="abc">Base</a> - Front Camera + additional sensors (GNSS, IMU, Weather) + Anomaly Labels</li>
+        <li><a href="abc">Camera Extended</a> - Left, Right, Rear</li>
+        <li><a href="abc">LiDAR</a> - Pointclouds and labels in Kitti format</li>
+        <li><a href="abc">Depth Maps</a> - Depth maps for all cameras</li>
+      </ul>
+
+      You can download and set up the base dataset up with 
+
+      <pre>
+        cd my/data/dir/
+        wget https://files.kondas.de/carlanomaly/base.tar.gz  
+        tar -xzf base.tar.gz  
+      </pre>
+
+      Afterwards, download additional data with 
+      <pre>
+        cd my/data/dir/
+        wget https://files.kondas.de/carlanomaly/&lt;extended&gt;.tar.gz  
+        tar -xzf &lt;extended&gt;.tar.gz  
+      </pre>
+
     </section>
 
     <section>
+
+      <h2>Usage</h2>
+
+      The example code to compute the baseline results are available in <a href="#">this repository</a>
+    </section>
+
+
+    <section>
       <h2>License: MIT</h2>
-      The CarlAnomaly dataset is licensed under MIT. 
+      The CarlAnomaly dataset is licensed under the MIT which you can find <a href="https://mit-license.org/">here</a>. 
 
 
     </section>
@@ -405,6 +468,17 @@
     </section>
 
 
+
+    <section>
+      <h2>FAQ</h2>
+
+      <p>
+        <b>Why did you not use the new version of carla?</b><br>
+        Because it only supports two maps. 
+      </p>
+      
+
+    </section>
   </main>
 
   <footer>
