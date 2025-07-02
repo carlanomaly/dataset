@@ -1,0 +1,241 @@
+/* ——— Site-wide typography & layout ——— */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header,
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1,
+footer p {
+  margin: 0;
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+main p {
+  display: block;               /* redundant but explicit */
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1.5rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* ——— Media blocks ——— */
+.gallery,
+.video-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.gallery figure,
+.video-container figure {
+  flex: 1;
+  margin: 0;
+}
+
+.gallery img,
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery figcaption,
+.video-container figcaption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* ——— Table styling ——— */
+.cool-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cool-table thead {
+  background: linear-gradient(90deg, #4b79a1, #283e51);
+  color: #fff;
+}
+
+.cool-table th,
+.cool-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.cool-table tbody tr:nth-child(even) {
+  background: #f7f9fb;
+}
+
+.cool-table tbody tr:hover {
+  background: #e1f3ff;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* ——— Navigation bar ——— */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+nav a:hover,
+nav a:focus {
+  border-color: #fff;
+}
+
+nav a.active {
+  border-color: #4b79a1;      /* visual cue for current page */
+}
+
+/* base tree styling */
+.tree, .tree ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1.25rem;        /* indentation step */
+  position: relative;
+}
+
+/* connective vertical line */
+.tree ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.5rem;                 /* aligns with glyphs below */
+  width: 1px;
+  background: #ccc;
+}
+
+/* leaf connector */
+.tree li {
+  position: relative;
+  padding-left: 1rem;           /* space for branch line */
+}
+
+.tree li::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0;                      /* meets vertical line */
+  width: 0.75rem;
+  height: 1px;
+  background: #ccc;
+}
+
+/* glyphs */
+.dir::before  { content: "📂 "; } /* or use SVG background */
+.file::before { content: "📄 "; }
+
+/* typography */
+.dir, .file {
+  font-family: monospace;
+  cursor: default;
+}
+/* ——— Hero video banner ——— */
+/* ——— Hero video banner (bounded height, no cropping) ——— */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;          /* adjust: e.g. 40vh, 60vh — your aesthetic throttle  */
+  background: #000;      /* bars fill with black (or any brand colour) */
+  overflow: hidden;      /* hides any overspill when window resizes */
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* show entire frame, introduce letter-boxing */
+  transform: translate(-50%, -50%); /* centre within the box */
+  pointer-events: none;
+}
+
+/* -------- hero caption (vertical stack) -------- */
+.hero-caption {
+  position: absolute;      /* unchanged anchoring */
+  inset: 0;
+  display: flex;
+  flex-direction: column;  /* ← forces <h1> and <p> onto separate lines   */
+  align-items: center;     /* horizontal centring                         */
+  justify-content: center; /* vertical centring                           */
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  /* optional: max-width for better readability on very wide screens */
+  /* max-width: 80ch; */
+}
+
+/* ——— Header layout ——— */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;        /* keeps items on small screens */
+  max-width: 1200px;      /* optional: matches main width cap */
+  margin: 0 auto;         /* centres the whole bar in wide viewports */
+  padding: 0 1rem;
+}
+
+/* site title */
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* remove default link colour override since header already sets colour */
+.site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ——— Sticky header ——— */
+header {
+  position: sticky;   /* remains in normal flow, then pins at scroll-top */
+  top: 0;
+  z-index: 1000;      /* ensures it overlays page content */
+}
+
+/* optional: subtle drop-shadow for depth */
+header {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}

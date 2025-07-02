@@ -4,134 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CarLanomaly Dataset</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-    header, footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-    header h1, footer p {
-      margin: 0;
-    }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    main p {
-      /* ensures it’s a block (already default for <p>) */
-      display: block;
-      /* align both left & right edges */
-      text-align: justify;
-      /* distribute spaces between words */
-      text-justify: inter-word;
-      margin-bottom: 1.5rem; /* optional spacing */
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-    .gallery {
-      display: flex;
-      gap: 1rem;
-    }
-    .gallery figure {
-      flex: 1;
-      margin: 0;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .gallery figcaption {
-      text-align: center;
-      margin-top: 0.5rem;
-      font-style: italic;
-      color: #666;
-    }
-    .video-container {
-      display: flex;
-      gap: 1rem;
-    }
-    .video-container figure {
-      flex: 1;
-      margin: 0;
-    }
-    .video-container video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .video-container figcaption {
-      text-align: center;
-      margin-top: 0.5rem;
-      font-style: italic;
-      color: #666;
-    }
-    .cool-table {
-      width: 100%;
-      border-collapse: collapse;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .cool-table thead {
-      background: linear-gradient(90deg, #4b79a1, #283e51);
-      color: #fff;
-    }
-    .cool-table th,
-    .cool-table td {
-      padding: 0.75rem 1rem;
-      text-align: center;
-    }
-    .cool-table tbody tr:nth-child(even) {
-      background: #f7f9fb;
-    }
-    .cool-table tbody tr:hover {
-      background: #e1f3ff;
-    }
-    .table-wrapper {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-  </style>
+   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header>
-    <h1>CarlAnomaly Dataset</h1>
-    <p>A CARLA-based benchmark dataset for video anomaly detection for autonomous vehicles</p>
-  </header>
+<header>
+  <div class="header-bar">
+    <h1 class="site-title"><a href="index.html">CarlAnomaly</a></h1>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="dataset.html">Dataset</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+      <!-- Hero video banner -->
+  <section class="hero">
+    <video src="video/carlagen-demo.mp4"
+          autoplay
+          muted
+          loop
+          playsinline></video>
+
+    <!-- optional overlay text; remove if not needed -->
+    <div class="hero-caption">
+      <h1>CarlAnomaly</h1>
+     
+       <h3>A CARLA-based Dataset for Multi-Modal Anomaly Detection</h3>
+    </div>
+  </section>
 
   <main>
-    <section>
-      <p>
-        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
-      </p>
-      
-     
 
-      <div class="video-container" >
-        <figure>
-        <video controls>
-          <source src="video/carlagen-demo.mp4" type="video/mp4" style="width: 720px; margin: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
-        </figure>
-      </div>
-    </section>
+
+
 
     <section>
-      <h2>Sensor Setup</h2>
+
+       <h2>Sensor Setup</h2>
 
       <div class="gallery"  style="width: 500px; margin: auto;">
        <figure>
@@ -142,106 +58,24 @@
 
 
 
-      <h3>Instance Segmentation Masks</h3>
-
-      The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID.
-      Since these annotations where generated in a simulation, the annotations are perfect. 
-
-      <div class="gallery">
+      <!-- <p>
+        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
+      </p>
+       -->
+     
+<!-- 
+      <div class="video-container" >
         <figure>
-          <img src="img/000003.jpg" alt="Car Anomaly 1">
-          <figcaption>Camera Image</figcaption>
+        <video controls>
+          <source src="video/carlagen-demo.mp4" type="video/mp4" style="width: 720px; margin: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
         </figure>
-        <figure>
-          <img src="img/000003.png" alt="Car Anomaly 2">
-          <figcaption>Instance Segmentation Mask</figcaption>
-        </figure>
-         <figure>
-          <img src="img/000003.png" alt="Car Anomaly 2">
-          <figcaption>Depth Map<figcaption>
-        </figure>
-        </div>
+      </div> -->
+    </section>
 
-        <div class="gallery">
-        <figure>
-          <img src="img/000080.jpg" alt="Car Anomaly 1">
-          <figcaption>Camera Image</figcaption>
-        </figure>
-
-        <figure>
-          <img src="img/000080.png" alt="Car Anomaly 2">
-          <figcaption>Instance Segmentation Mask</figcaption>
-        </figure>
-
-         <figure>
-          <img src="img/000080.png" alt="Car Anomaly 2">
-          <figcaption>Depth Map</figcaption>
-        </figure>
-
-      </div>
-
-    <h3>Semantic LIDAR Point Clouds</h3>
-      Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings. 
-
-      We follow the KITTI-format. 
-
-      <div class="gallery">
-        <figure>
-          <img src="img/pcl-0.jpg" alt="Car Anomaly 1">
-          <figcaption>LIDAR Example 1</figcaption>
-        </figure>
-        <figure>
-          <img src="img/pcl-1.jpg" alt="Car Anomaly 2">
-          <figcaption>LIDAR Example 2</figcaption>
-        </figure>
-
-      </div>
-
-      <h3>Additional Sensors</h3>
-      The dataset additionally contains sensor readings for the following sensors in CSV format: 
-
-      <ul>
-        <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
-        <li><b>GNSS</b>: Measuring position of the vehicle</li>
-        <li><b>Weather</b>: Exact weather conditions</li>
-      </ul>
-
-
-      <h4>Example: IMU</h3>
-      The per-frame IMU readings look as follows:
-
-      <div class="table-wrapper">
-        <table  class="cool-table">
-          <tr>
-            <th>index</th>
-            <th>acceleration_x</th>
-            <th>acceleration_y</th>
-            <th>acceleration_z</th>
-            <th>compass</th>
-            <th>longitude_x</th>
-            <th>longitude_y</th>
-            <th>longitude_z</th>
-          </tr>
-          <tr><td>0</td><td>-1.31</td><td>0.00</td><td>9.73</td><td>3.16</td><td>-0.00</td><td>-0.02</td><td>-0.01</td></tr>
-          <tr><td>1</td><td>5.58</td><td>-0.02</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
-          <tr><td>2</td><td>5.90</td><td>-0.00</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
-          <tr><td>3</td><td>6.19</td><td>-0.01</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
-          <tr><td>4</td><td>5.90</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
-          <tr><td>5</td><td>4.71</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>0.00</td><td>-0.00</td></tr>
-          <tr><td>6</td><td>-0.01</td><td>-0.10</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>0.01</td><td>-0.01</td></tr>
-        </table>
-        </div>
-
-
-        <h4>Example: GNSS</h4>
-
-
-         <div class="gallery"  style="width: 500px; margin: auto;">
-         <figure>
-          <img src="img/gnss.webp" alt="GNSS">
-          <figcaption>GNSS Coordinates in Matplotlib</figcaption>
-        </figure>
-        </div>
+    <section>
 
       <h2>Dataset Composition</h2>
 
@@ -388,71 +222,6 @@
     </section>
 
 
-    
-    <section>
-      <h2>Download</h2>
-      <p>Since the dataset is generated by a simulation, you are free to use it however you like.</p>
-
-
-      The full dataset is 1.3T in size. Most of this is the LiDAR pointclouds. 
-      You can download it from <a href="#">Academic Torrents</a> or via <code>https</code> as described below.
-      
-      <h3>Parts</h3>
-      The dataset can be downloaded in parts
-
-      <ul>
-        <li><a href="abc">Base</a> - Front Camera + additional sensors (GNSS, IMU, Weather) + Anomaly Labels</li>
-        <li><a href="abc">Camera Extended</a> - Left, Right, Rear camera sensor, including instance segmentation masks and anomaly-labels</li>
-        <li><a href="abc">LiDAR</a> - Pointclouds and labels in Kitti format</li>
-        <li><a href="abc">Depth Maps</a> - Depth maps for all cameras</li>
-        <li><a href="abc">Carla Recordings</a> - Carla logs which can be used to reproduce a simulated scenario</li>
-      </ul>
-
-      You can download and set up the base dataset up with 
-
-      <pre>
-        cd my/data/dir/
-        wget https://files.kondas.de/carlanomaly/base.tar.gz
-        tar -xzf base.tar.gz  
-      </pre>
-
-      Afterwards, download additional data with 
-      <pre>
-        cd my/data/dir/
-        wget https://files.kondas.de/carlanomaly/&lt;name&gt;.tar.gz
-        tar -xzf &lt;name&gt;.tar.gz  
-      </pre>
-
-    </section>
-
-    <section>
-
-      <h2>Usage</h2>
-
-      <h3>Evaluate your own Models</h3>
-      <p>
-         Allows to benchmark anomaly detection capabilities on the pixel/point level, the frame level, and the scenario level. 
-      </p>
-
-
-
-      <p>
-        Code for training and evaluating your model on the benchmark is provided in this <a href="#">GitHub repository</a>.
-        The example code to compute the baseline results are available in <a href="#">this repository</a>
-      </p>
-
-      <h3>Generate your own Scenarios - CarlaGen</h3>
-
-      <p>
-        We also release the code that was used to simulate the scenarios - "CarlaGen". 
-        This is basically a CARLA-centered framework that combines the hydra configuration framework with the CARLA Python API.
-        It defines some callbacks which you can use to cause events or capture data from various sensors that you just describe in <code>yaml</code> configuration files.  
-      </p>  
-
-      <p>
-        This allows you to, for example, create a new version of the dataset with higher-resolution camera images or additional sensors, such as dynamic vision sensor (DVS), optical flow, or radar.
-      </p>
-    </section>
 
 
     <section>
@@ -475,22 +244,7 @@
 
 
 
-    <section>
-      <h2>FAQ</h2>
-
-      <p>
-        <b>Why did you not use the new version of CARLA?</b><br>
-        Because it only supports two maps. 
-      </p>
-      
-
-      <p>
-        <b>Did you generate this with the vanilla version of CARLA?</b><br>
-        No, we used a version with several patches because the vanilla version does not have all of the features we need. 
-        The patching process is described in the documentation of CarlaGen. 
-      </p>
-
-    </section>
+    
   </main>
 
   <footer>

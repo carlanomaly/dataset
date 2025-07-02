@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dataset | CarlAnomaly Dataset</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+   <header>
+  <div class="header-bar">
+    <h1 class="site-title"><a href="index.html">CarlAnomaly</a></h1>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dataset.html" class="active">Dataset</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <main>
+      <section>
+        <h2>Dataset Overview</h2>
+        <p><!-- Placeholder: insert composition, modalities, and annotation schema --></p>
+      </section>
+
+
+      <section>
+        <h3>Directory Structure</h3>
+
+                <ul class="tree">
+        <li>
+            <span class="dir">data/</span>
+            <ul>
+            <li><span class="file">README.md</span></li>
+            <li>
+                <span class="dir">images/</span>
+                <ul>
+                <li><span class="file">001.jpg</span></li>
+                <li><span class="file">002.jpg</span></li>
+                </ul>
+            </li>
+            <li><span class="file">labels.csv</span></li>
+            </ul>
+        </li>
+        </ul>
+
+      </section>
+
+
+      <section>
+     
+
+
+      <h3>Instance Segmentation Masks</h3>
+
+      The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID.
+      Since these annotations where generated in a simulation, the annotations are perfect. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/000003.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+        <figure>
+          <img src="img/000003.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+         <figure>
+          <img src="img/000003.png" alt="Car Anomaly 2">
+          <figcaption>Depth Map<figcaption>
+        </figure>
+        </div>
+
+        <div class="gallery">
+        <figure>
+          <img src="img/000080.jpg" alt="Car Anomaly 1">
+          <figcaption>Camera Image</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/000080.png" alt="Car Anomaly 2">
+          <figcaption>Instance Segmentation Mask</figcaption>
+        </figure>
+
+         <figure>
+          <img src="img/000080.png" alt="Car Anomaly 2">
+          <figcaption>Depth Map</figcaption>
+        </figure>
+
+      </div>
+
+    <h3>Semantic LIDAR Point Clouds</h3>
+      Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings. 
+
+      We follow the KITTI-format. 
+
+      <div class="gallery">
+        <figure>
+          <img src="img/pcl-0.jpg" alt="Car Anomaly 1">
+          <figcaption>LIDAR Example 1</figcaption>
+        </figure>
+        <figure>
+          <img src="img/pcl-1.jpg" alt="Car Anomaly 2">
+          <figcaption>LIDAR Example 2</figcaption>
+        </figure>
+
+      </div>
+
+      <h3>Additional Sensors</h3>
+      The dataset additionally contains sensor readings for the following sensors in CSV format: 
+
+      <ul>
+        <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
+        <li><b>GNSS</b>: Measuring position of the vehicle</li>
+        <li><b>Weather</b>: Exact weather conditions</li>
+      </ul>
+
+
+      <h4>Example: IMU</h3>
+      The per-frame IMU readings look as follows:
+
+      <div class="table-wrapper">
+        <table  class="cool-table">
+          <tr>
+            <th>index</th>
+            <th>acceleration_x</th>
+            <th>acceleration_y</th>
+            <th>acceleration_z</th>
+            <th>compass</th>
+            <th>longitude_x</th>
+            <th>longitude_y</th>
+            <th>longitude_z</th>
+          </tr>
+          <tr><td>0</td><td>-1.31</td><td>0.00</td><td>9.73</td><td>3.16</td><td>-0.00</td><td>-0.02</td><td>-0.01</td></tr>
+          <tr><td>1</td><td>5.58</td><td>-0.02</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>2</td><td>5.90</td><td>-0.00</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.01</td><td>-0.00</td></tr>
+          <tr><td>3</td><td>6.19</td><td>-0.01</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>4</td><td>5.90</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>-0.00</td><td>-0.00</td></tr>
+          <tr><td>5</td><td>4.71</td><td>-0.01</td><td>9.81</td><td>3.16</td><td>-0.00</td><td>0.00</td><td>-0.00</td></tr>
+          <tr><td>6</td><td>-0.01</td><td>-0.10</td><td>9.82</td><td>3.16</td><td>-0.00</td><td>0.01</td><td>-0.01</td></tr>
+        </table>
+        </div>
+
+
+        <h4>Example: GNSS</h4>
+
+
+         <div class="gallery"  style="width: 500px; margin: auto;">
+         <figure>
+          <img src="img/gnss.webp" alt="GNSS">
+          <figcaption>GNSS Coordinates in Matplotlib</figcaption>
+        </figure>
+        </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 CarlAnomaly Dataset</p>
+    </footer>
+  </body>
+</html>
