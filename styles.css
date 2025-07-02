@@ -322,3 +322,57 @@ hr {
     display: inline-block;
   }
 }
+
+
+/* ——— Feature ribbon cards ——— */
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin: 3rem 0;
+}
+
+.feature-card {
+  position: relative;
+  padding: 1.75rem 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);   /* ← new thin border */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+.feature-card h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* ——— Feature-card list: bullet points, left-aligned ——— */
+.feature-card ul {
+  list-style: disc;          /* restore normal bullets          */
+  text-align: left;          /* left-flush text inside the card */
+  margin: 0.5rem auto 0;     /* vertical rhythm, centred block  */
+  padding-left: 1.25rem;     /* space for the bullet glyph      */
+}
+
+/* eliminate the earlier “— ” prefix */
+.feature-card li::before {
+  content: none;
+}
+
+/* Icon */
+.feature-card .icon {
+  font-size: 2.4rem;
+  color: #4b79a1;
+}
+
+.feature-card .ribbon {
+  position: absolute;
+  top: 0.25rem;          /* ⇧ raise closer to the top edge */
+  left: 0.25rem;         /* ⇨ shift inside the left radius */
+  
+  /* slightly larger triangle for crisper geometry */
+  border-top: 1.4rem solid #4b79a1;
+  border-right: 1.4rem solid transparent;
+}

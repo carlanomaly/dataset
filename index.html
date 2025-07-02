@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CarLanomaly Dataset</title>
   <link rel="stylesheet" href="styles.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 </head>
 
 <body>
@@ -35,101 +40,65 @@
     <div class="hero-caption">
       <h1>CarlAnomaly</h1>
 
-      <h3>A CARLA-based Dataset for Multi-Modal Anomaly Detection</h3>
+      <h3>A CARLA-based Dataset for Multi-Modal Anomaly Detection<br>in Autonomous Driving Scenarios</h3>
     </div>
   </section>
 
   <main>
 
+  <section class="feature-grid">
+    <article class="feature-card">
+      <span class="ribbon"></span>
+      <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+      <h3>Multi-Modal</h3>
+      <ul>
+        <li>4 RGB-D Cameras</li>
+        <li>LiDAR</li>
+        <li>IMU</li>
+        <li>GNSS</li>
+      </ul>
+    </article>
 
+    <article class="feature-card">
+      <span class="ribbon"></span>
+      <div class="icon"><i class="fa-solid fa-bug"></i></div>
+      <h3>Anomalies</h3>
+      <ul>
+        <li>Various Types</li>
+        <li>Manually Verified</li>
+        <li>Diverse Environmental Conditions</li>
+      </ul>
+    </article>
+
+    <article class="feature-card">
+      <span class="ribbon"></span>
+      <div class="icon"><i class="fa-solid fa-database"></i></div>
+      <h3>Large Scale</h3>
+      <ul>
+        <li>2 hours of training data</li>
+        <li>1 hour of validation data</li>
+        <li>500 x 20s clips for testing</li>
+        <li>1.3 TB</li>
+      </ul>
+    </article>
+  </section>
 
 
     <section>
+      <h2>Paper</h2>
 
-      <h2>Sensor Setup</h2>
-
-      <div class="gallery" style="max-width: 500px; margin: auto;">
-        <figure>
-          <img src="img/carla-setup.png" alt="Car Anomaly Sensor Setup">
-          <figcaption>Sensor Setup</figcaption>
-        </figure>
-      </div>
+      <code>
+@inproceedings{
 
 
-
-      <!-- <p>
-        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
-      </p>
-       -->
-
-      <!-- 
-      <div class="video-container" >
-        <figure>
-        <video controls>
-          <source src="video/carlagen-demo.mp4" type="video/mp4" style="width: 720px; margin: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
-        </figure>
-      </div> -->
-    </section>
-
-    <section>
-
-      <h2>Dataset Composition</h2>
-
-      <h3>Training Set</h3>
-      <p>
-        The training set consists of 2 extended drives through different maps of CARLA (town01, town05).
-      </p>
-
-      <h3>Validation Set</h3>
-      <p>
-        The validation set consists of an extended drive through town(03).
-      </p>
-
-      <h3>Test Set</h3>
-      <p>
-        The test set features 552 scenarios, each 20 seconds long, some of which contain anomalies.
-      </p>
-
-      <p>
-
-        CarlAnomaly features a wide range of environmental conditions, including different times of day,
-        different environments (maps in CARLA), etc.
-      </p>
-
-
-      <div class="gallery">
-        <figure>
-          <img src="img/1337-rainy.jpg" alt="Car Anomaly 1">
-          <figcaption>Rainy</figcaption>
-        </figure>
-
-        <figure>
-          <img src="img/1337-night.jpg" alt="Car Anomaly 1">
-          <figcaption>Night</figcaption>
-        </figure>
-
-        <figure>
-          <img src="img/1337-sunset.jpg" alt="Car Anomaly 1">
-          <figcaption>Sunset</figcaption>
-        </figure>
-      </div>
-
-
+}
+      </code>
     </section>
 
 
 
-
-
-
-
-
-
     <section>
-      <h2>Anomalies</h2>
+      <h2>Example Anomalies</h2>
 
       CarlAnomaly features a wide range of anomalies.
 
@@ -143,7 +112,7 @@
       </ul>
 
 
-      <h3>Spawning Anomalous Objects</h3>
+      <h3>Spawning Road Debris</h3>
       <div class="gallery video-container">
         <figure>
           <video controls>
@@ -223,16 +192,6 @@
 
 
 
-    <section>
-      <h2>Citation</h2>
-
-      <code>
-@inproceedings{
-
-
-}
-      </code>
-    </section>
 
 
 

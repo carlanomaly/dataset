@@ -43,6 +43,87 @@
         </section>
 
 
+    <section>
+
+      <h3>Sensor Setup</h3>
+
+      <div class="gallery" style="max-width: 500px; margin: auto;">
+        <figure>
+          <img src="img/carla-setup.png" alt="Car Anomaly Sensor Setup">
+          <figcaption>Sensor Setup</figcaption>
+        </figure>
+      </div>
+
+
+
+      <!-- <p>
+        Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
+      </p>
+       -->
+
+      <!-- 
+      <div class="video-container" >
+        <figure>
+        <video controls>
+          <source src="video/carlagen-demo.mp4" type="video/mp4" style="width: 720px; margin: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Example Video showing Cameras and Semantic LIDAR.</figcaption>
+        </figure>
+      </div> -->
+    </section>
+
+    <!-- <section>
+
+      <h2>Dataset Composition</h2>
+
+      <h3>Training Set</h3>
+      <p>
+        The training set consists of 2 extended drives through different maps of CARLA (town01, town05).
+      </p>
+
+      <h3>Validation Set</h3>
+      <p>
+        The validation set consists of an extended drive through town(03).
+      </p>
+
+      <h3>Test Set</h3>
+      <p>
+        The test set features 552 scenarios, each 20 seconds long, some of which contain anomalies.
+      </p>
+
+      <p>
+
+        CarlAnomaly features a wide range of environmental conditions, including different times of day,
+        different environments (maps in CARLA), etc.
+      </p>
+
+
+      <div class="gallery">
+        <figure>
+          <img src="img/1337-rainy.jpg" alt="Car Anomaly 1">
+          <figcaption>Rainy</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/1337-night.jpg" alt="Car Anomaly 1">
+          <figcaption>Night</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/1337-sunset.jpg" alt="Car Anomaly 1">
+          <figcaption>Sunset</figcaption>
+        </figure>
+      </div>
+
+
+    </section> -->
+
+
+
+
+
+
         <section>
             <h3>Directory Structure</h3>
 
@@ -220,10 +301,10 @@ segmentation_mask = np.array(img)[:,:,0]
 
                 <p>
                 <pre><code class="language-python"># x, y, z, and reflectance 
-points = np.fromfile("pointclouds/000063.bin", dtype=np.dtype("f4")).reshape(-1, 4)
+points = np.fromfile("pointclouds/000000.bin", dtype=np.dtype("f4")).reshape(-1, 4)
 
-# class_label and instance_id 
-labels = np.fromfile("pointclouds/labels-000063.bin", dtype=np.uint32).reshape(-1, 2)
+# instance_id and class_label 
+labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-1, 2)
 </code></pre>
                 </p>
 
@@ -284,7 +365,7 @@ labels = np.fromfile("pointclouds/labels-000063.bin", dtype=np.uint32).reshape(-
                 <p>
                     For <b>cameras</b> the per-pixel anomaly labels are available in a separate directory.
                     Labels are written in a 1-channel PNG where 0 means normal and everything else means anomaly.
-                    Sensor-level anomaly labels are given in a CSV with an <code>anomaly</code> column for convenience.
+                    Sensor-level anomaly labels are given in a CSV with an <code>anomaly</code> column.
                 </p>
 
                 <ul class="tree">
