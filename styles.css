@@ -26,7 +26,8 @@ main {
 }
 
 main p {
-  display: block;               /* redundant but explicit */
+  display: block;
+  /* redundant but explicit */
   text-align: justify;
   text-justify: inter-word;
   margin-bottom: 1.5rem;
@@ -122,14 +123,17 @@ nav a:focus {
 }
 
 nav a.active {
-  border-color: #4b79a1;      /* visual cue for current page */
+  border-color: #4b79a1;
+  /* visual cue for current page */
 }
 
 /* base tree styling */
-.tree, .tree ul {
+.tree,
+.tree ul {
   list-style: none;
   margin: 0;
-  padding-left: 1.25rem;        /* indentation step */
+  padding-left: 1.25rem;
+  /* indentation step */
   position: relative;
 }
 
@@ -139,7 +143,8 @@ nav a.active {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0.5rem;                 /* aligns with glyphs below */
+  left: 0.5rem;
+  /* aligns with glyphs below */
   width: 1px;
   background: #ccc;
 }
@@ -147,36 +152,47 @@ nav a.active {
 /* leaf connector */
 .tree li {
   position: relative;
-  padding-left: 1rem;           /* space for branch line */
+  padding-left: 1rem;
+  /* space for branch line */
 }
 
 .tree li::before {
   content: "";
   position: absolute;
   top: 0.75rem;
-  left: 0;                      /* meets vertical line */
+  left: 0;
+  /* meets vertical line */
   width: 0.75rem;
   height: 1px;
   background: #ccc;
 }
 
-/* glyphs */
-.dir::before  { content: "📂 "; } /* or use SVG background */
-.file::before { content: "📄 "; }
+/* directory tree glyph overrides */
+.dir::before      { content: "📂 "; }  /* directory */
+.file::before     { content: "📄 "; }  /* generic text file */
+.image::before    { content: "🖼️ "; } /* image file        */
+.binary::before   { content: "📦 "; } /* binary/archive    */
 
 /* typography */
-.dir, .file {
+.dir,
+.file,
+.image,
+.binary {
   font-family: monospace;
   cursor: default;
 }
+
 /* ——— Hero video banner ——— */
 /* ——— Hero video banner (bounded height, no cropping) ——— */
 .hero {
   position: relative;
   width: 100%;
-  height: 60vh;          /* adjust: e.g. 40vh, 60vh — your aesthetic throttle  */
-  background: #000;      /* bars fill with black (or any brand colour) */
-  overflow: hidden;      /* hides any overspill when window resizes */
+  height: 60vh;
+  /* adjust: e.g. 40vh, 60vh — your aesthetic throttle  */
+  background: #000;
+  /* bars fill with black (or any brand colour) */
+  overflow: hidden;
+  /* hides any overspill when window resizes */
 }
 
 .hero video {
@@ -185,23 +201,39 @@ nav a.active {
   left: 50%;
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* show entire frame, introduce letter-boxing */
-  transform: translate(-50%, -50%); /* centre within the box */
+  object-fit: contain;
+  /* show entire frame, introduce letter-boxing */
+  transform: translate(-50%, -50%);
+  /* centre within the box */
   pointer-events: none;
 }
 
-/* -------- hero caption (vertical stack) -------- */
+/* overwrite / extend previous rules */
 .hero-caption {
-  position: absolute;      /* unchanged anchoring */
+  position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;  /* ← forces <h1> and <p> onto separate lines   */
-  align-items: center;     /* horizontal centring                         */
-  justify-content: center; /* vertical centring                           */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* keeps it centred vertically as a flex item */
+
+  width: 100%;
+  /* ← ensures full-width alignment reference   */
+  padding: 0 1rem;
+  /* responsive side gutters                    */
+  box-sizing: border-box;
+  text-align: center;
+  /* ← centres each wrapped line                */
+
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  /* optional: max-width for better readability on very wide screens */
-  /* max-width: 80ch; */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-caption h1,
+.hero-caption p {
+  margin: 0.25rem 0;
+  /* tidy vertical rhythm */
 }
 
 /* ——— Header layout ——— */
@@ -209,9 +241,12 @@ nav a.active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;        /* keeps items on small screens */
-  max-width: 1200px;      /* optional: matches main width cap */
-  margin: 0 auto;         /* centres the whole bar in wide viewports */
+  flex-wrap: wrap;
+  /* keeps items on small screens */
+  max-width: 1200px;
+  /* optional: matches main width cap */
+  margin: 0 auto;
+  /* centres the whole bar in wide viewports */
   padding: 0 1rem;
 }
 
@@ -230,12 +265,60 @@ nav a.active {
 
 /* ——— Sticky header ——— */
 header {
-  position: sticky;   /* remains in normal flow, then pins at scroll-top */
+  position: sticky;
+  /* remains in normal flow, then pins at scroll-top */
   top: 0;
-  z-index: 1000;      /* ensures it overlays page content */
+  z-index: 1000;
+  /* ensures it overlays page content */
 }
 
 /* optional: subtle drop-shadow for depth */
 header {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ——— Soft horizontal rule ——— */
+hr {
+  border: none;                       /* remove default bevel */
+  height: 1px;                        /* hairline thickness   */
+
+  /* subtle centre-weighted gradient */
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0,0,0,0.15) 20%,
+      rgba(0,0,0,0.25) 50%,
+      rgba(0,0,0,0.15) 80%,
+      transparent 100%
+  );
+
+  margin: 2.5rem 0;                   /* generous breathing room */
+  opacity: 0.9;                       /* soften further */
+}
+
+
+/* ——— Mobile adjustments (≤ 640 px) ——— */
+@media (max-width: 640px) {
+
+  /* stack title above nav */
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    /* left-align for readability */
+  }
+
+  /* allow menu items to wrap onto new lines */
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem 1.25rem;
+    /* row × column spacing */
+    margin-top: 0.5rem;
+  }
+
+  /* make touch targets slightly taller */
+  nav a {
+    padding: 0.4rem 0;
+    display: inline-block;
+  }
 }

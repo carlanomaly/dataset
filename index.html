@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CarLanomaly Dataset</title>
-   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-<header>
-  <div class="header-bar">
-    <h1 class="site-title"><a href="index.html">CarlAnomaly</a></h1>
+  <header>
+    <div class="header-bar">
+      <h1 class="site-title"><a href="index.html">CarlAnomaly</a></h1>
 
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="dataset.html">Dataset</a></li>
-        <li><a href="download.html">Download</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="dataset.html">Dataset</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Hero video banner -->
+  <!-- Hero video banner -->
   <section class="hero">
-    <video src="video/carlagen-demo.mp4"
-          autoplay
-          muted
-          loop
-          playsinline></video>
+    <video src="video/carlagen-demo.mp4" autoplay muted loop playsinline></video>
 
     <!-- optional overlay text; remove if not needed -->
     <div class="hero-caption">
       <h1>CarlAnomaly</h1>
-     
-       <h3>A CARLA-based Dataset for Multi-Modal Anomaly Detection</h3>
+
+      <h3>A CARLA-based Dataset for Multi-Modal Anomaly Detection</h3>
     </div>
   </section>
 
@@ -47,10 +46,10 @@
 
     <section>
 
-       <h2>Sensor Setup</h2>
+      <h2>Sensor Setup</h2>
 
-      <div class="gallery"  style="width: 500px; margin: auto;">
-       <figure>
+      <div class="gallery" style="max-width: 500px; margin: auto;">
+        <figure>
           <img src="img/carla-setup.png" alt="Car Anomaly Sensor Setup">
           <figcaption>Sensor Setup</figcaption>
         </figure>
@@ -62,8 +61,8 @@
         Anomaly detection is vital in autonomous driving, where unhandled edge cases can lead to catastrophic failures. However, current datasets lack realistic, diverse video anomaly scenarios with autonomous driving context for effective evaluation. We introduce the CarlAnomaly dataset, a new benchmark containing a wide range of well-annotated anomalies in realistic driving contexts, comparable in size and modality to existing autonomous driving datasets. Leveraging the dataset’s semantic segmentation masks, we explore extending segmentation-based anomaly detection from images to videos. 
       </p>
        -->
-     
-<!-- 
+
+      <!-- 
       <div class="video-container" >
         <figure>
         <video controls>
@@ -81,25 +80,25 @@
 
       <h3>Training Set</h3>
       <p>
-        The training set consists of 2 extended drives through different maps of CARLA (town01, town05). 
+        The training set consists of 2 extended drives through different maps of CARLA (town01, town05).
       </p>
-      
+
       <h3>Validation Set</h3>
       <p>
-        The validation set consists of an extended drive through town(03). 
+        The validation set consists of an extended drive through town(03).
       </p>
 
       <h3>Test Set</h3>
       <p>
-        The test set features 552 scenarios, each 20 seconds long, some of which contain anomalies. 
+        The test set features 552 scenarios, each 20 seconds long, some of which contain anomalies.
       </p>
 
       <p>
-       
-        CarlAnomaly features a wide range of environmental conditions, including different times of day, 
-        different environments (maps in CARLA), etc. 
+
+        CarlAnomaly features a wide range of environmental conditions, including different times of day,
+        different environments (maps in CARLA), etc.
       </p>
-     
+
 
       <div class="gallery">
         <figure>
@@ -125,16 +124,16 @@
 
 
 
-      
+
 
 
 
     <section>
       <h2>Anomalies</h2>
 
-      CarlAnomaly features a wide range of anomalies. 
+      CarlAnomaly features a wide range of anomalies.
 
-      Overall, there are x different types of anomalies: 
+      Overall, there are x different types of anomalies:
 
       <ul>
         <li>Randomly appearing and disappearing unknown objects</li>
@@ -147,18 +146,18 @@
       <h3>Spawning Anomalous Objects</h3>
       <div class="gallery video-container">
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/spawn-props-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Front Camera</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/spawn-props-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Front Camera</figcaption>
         </figure>
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/segmentation-spawn-props.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Instance-wise Segmentation Mask</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/segmentation-spawn-props.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Instance-wise Segmentation Mask</figcaption>
       </div>
 
 
@@ -167,11 +166,11 @@
 
       <div class="gallery video-container">
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/traffic-light-off-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Front Camera</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/traffic-light-off-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Front Camera</figcaption>
         </figure>
         <figure>
           <video controls>
@@ -187,64 +186,57 @@
       <h3>Changing Weather</h3>
       <div class="gallery video-container">
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/weather-change-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Front Camera</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/weather-change-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Front Camera</figcaption>
         </figure>
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/segmentation-weather-change-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Instance-wise Segmentation Mask</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/segmentation-weather-change-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Instance-wise Segmentation Mask</figcaption>
       </div>
 
       <h3>Flickering Street Lights</h3>
       <div class="gallery video-container">
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/flicker-light-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Front Camera</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/flicker-light-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Front Camera</figcaption>
         </figure>
         <figure>
-        <video controls>
-          <source width="360px" src="video/ano/segmentation-flicker-light-front.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Instance-wise Segmentation Mask</figcaption>
+          <video controls>
+            <source width="360px" src="video/ano/segmentation-flicker-light-front.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Instance-wise Segmentation Mask</figcaption>
       </div>
 
-      
-    </section>
-
-
-
-
-    <section>
-      <h2>License: MIT</h2>
-      The CarlAnomaly dataset, including all software and models, is licensed under the MIT which you can find <a href="https://mit-license.org/">here</a>. 
-
 
     </section>
+
+
+
 
     <section>
       <h2>Citation</h2>
 
       <code>
-        {
+@inproceedings{
 
 
-        }
+}
       </code>
     </section>
 
 
 
-    
+
   </main>
 
   <footer>
@@ -252,4 +244,5 @@
   </footer>
 
 </body>
+
 </html>
